@@ -1,0 +1,307 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <iostream>
+#include <cmath>
+#include <float.h>
+#include <string>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+const int advert_time1 = 10100;
+const int advert_time2 = 5100;
+const int advert_time3 = 15100;
+
+int a = 0;
+int b = 0;
+int c = 0;
+double x1 = NAN;
+double x2 = NAN;
+string user_ans = "";
+char num_roots = ' ';
+int key_print=0;
+clock_t t0 = clock();
+clock_t t1 = clock();
+void advert1(int advert_time){
+
+    t0 = clock();
+    t1 = clock();
+    int i=(advert_time-100)/1000 + 1;
+    while (clock()-t0<advert_time){
+
+        t1 = clock();
+        if((advert_time-t1+t0)%1000==0 && (advert_time-t1+t0)/1000!=i){
+
+            --i;
+            system("cls");
+            cout << "+------------------------------------------------------------------------------+" << endl <<
+                    "|Subscribe to the best vk group of this eternity!: https://vk.com/russkeevpered|" << endl <<
+                    "|Here you will see good memes and posts and also you can post your maks's memes|" << endl <<
+                    "|And of course you need to join our group in telegram: https://t.me/andreevmaxi|" << endl <<
+                    "+------------------------------------------------------------------------------+" << endl <<
+                    "|If you have any troubles or there is something you don't like here, than.,....|" << endl <<
+                    "|You can write your letter to it's author!!!                                   |" << endl <<
+                    "|vk: https://vk.com/lolmakslol  git: https://github.com/andreevmaxi  tg: @Ne0Xb|" << endl <<
+                    "                                                                                " << endl <<
+                    "|and i need to say thanks to mail.ru , because their ideas are just awesome!!!!|" << endl <<
+                    "+------------------------------------------------------------------------------+" << endl <<
+                    endl << endl << "seconds of advert left: " << (int)((advert_time - t1 + t0) / CLOCKS_PER_SEC) << endl;
+        }
+
+    }
+
+    system("cls");
+}
+
+void advert2(int advert_time){
+
+    t0 = clock();
+    int i=(advert_time-100)/1000 + 1;
+
+    while (clock()-t0<advert_time){
+
+        t1 = clock();
+        if((advert_time-t1+t0)%1000==0 && (advert_time-t1+t0)/1000!=i){
+
+            --i;
+            system("cls");
+            cout << "+------------------------------------------------------------------------------+" << endl <<
+                    "|Sorry for this adverts, but we needed some money to live as we want, so sorryy|" << endl <<
+                    "|also i need money to buy learning in mipt, because i don't know do i pass to  |" << endl <<
+                    "|grand or not, and if not it will be very very bad                             |" << endl <<
+                    "+------------------------------------------------------------------------------+" << endl <<
+                    "|I know that you wouldn't read this at all, but i am doing it in 1:08, you ask |" << endl <<
+                    "|me why? But the answer is easy, because i was going to my home,from 2ka of    |" << endl <<
+                    "|mipt and i need to do more than 2 more homeworks and i need to do them good   |" << endl <<
+                    "|and i am doing them, but i have less and less time, so i am doing it right now|" << endl <<
+                    "|so another time sorry, i want 2 sleep, but i need to code(time: 1:11)(help me)|" << endl <<
+                    "+------------------------------------------------------------------------------+" << endl <<
+                    endl << endl << "seconds of advert left: " << (int)((advert_time - t1 + t0) / CLOCKS_PER_SEC) << endl;
+
+        }
+
+    }
+
+    system("cls");
+}
+
+char solve_square_equation(int a, int b, int c, double* x1, double* x2){
+	if (c == 0)
+	{
+
+		if (b == 0)
+		{
+
+			if (a == 0)
+			{//a=0 b=0 c=0
+				return 'i';// where is 'i'-infinite number solves of this equation
+			} else
+			{//b=0 c=0
+				*x1 = 0;
+				return '1';
+			}
+
+		} else
+		{
+
+			if(a == 0)
+			{//a=0 c=0
+				*x1 = 0;
+				return '1';
+			} else
+			{//c=0
+					*x1 = 0;
+					*x2 = -b/a;
+					return '2';
+			}
+
+		}
+
+	} else
+	{
+
+		if(b == 0)
+		{
+
+			if(a == 0)
+			{//a=0 b=0
+
+				return '0';
+
+			} else
+			{//b=0
+
+				if(c > 0)
+				{//ax^2+|c|=0
+
+					return '0';
+
+				} else
+				{//ax^2-|c|=0
+
+					*x1 = -sqrt(-c);
+					*x2 = sqrt(-c);
+					return '2';
+
+				}
+
+			}
+
+		} else
+		{
+
+			if(a == 0)
+			{//a=0
+
+				*x1 = -c/b;
+				return '1';
+
+			} else
+			{//nothing = 0
+
+				*x1 = ( - b - sqrt( b * b - 4 * a * c ) ) / (2 * a);
+				*x2 = ( - b + sqrt( b * b - 4 * a * c ) ) / (2 * a);
+				return '2';
+
+			}
+
+		}
+
+	}
+
+}
+
+void random_print(){
+    cout << "Now mine program will print number of roots," << endl << "first root and second root, but!!!!" << endl <<
+    "it will be in a random way plus ++++" << endl << " the numbers would be with measurement error of +-25" << endl;
+    switch(key_print){
+        case 1:
+        {
+            cout << 0.01 * (rand() % 2501) + num_roots - '0' << endl << 0.01 * (rand() % 2501) + x1 << endl << 0.01 * (rand() % 2501) + x2 << endl;
+            return;
+        }
+        case 2:
+        {
+            cout << 0.01 * (rand() % 2501) + num_roots - '0' << endl << 0.01 * (rand() % 2501) + x2 << endl << 0.01 * (rand() % 2501) + x1 << endl;
+            return;
+        }
+        case 3:
+        {
+            cout << 0.01 * (rand() % 2501) + x2 << endl << 0.01 * (rand() % 2501) + num_roots - '0' << endl << 0.01 * (rand() % 2501) + x1 << endl;
+            return;
+        }
+        case 4:
+        {
+            cout << 0.01 * (rand() % 2501) + x1 << endl << 0.01 * (rand() % 2501) + num_roots - '0' << endl << 0.01 * (rand() % 2501) + x2 << endl;
+            return;
+        }
+        case 5:
+        {
+            cout << 0.01 * (rand() % 2501) + x1 << endl << 0.01 * (rand() % 2501) + x2 << endl << 0.01 * (rand() % 2501) + num_roots - '0' << endl;
+            return;
+        }
+        case 6:
+        {
+            cout << 0.01 * (rand() % 2501) + x2 << endl << 0.01 * (rand() % 2501) + x1 << endl << 0.01 * (rand() % 2501) + num_roots - '0' << endl;
+            return;
+        }
+    }
+}
+
+void random_print2(){
+    cout << "Now mine program will print number of roots," << endl << "first root and second root, but!!!!" << endl <<
+    "now it will be in a random way" << endl << "but without measurement error" << endl;
+    if (num_roots == 'i' || num_roots == '0'){
+        x1=NAN;
+        x2=NAN;
+    } else
+    {
+        if (num_roots == '1'){
+            x2=NAN;
+        }
+    }
+    switch(key_print){
+        case 1:
+        {
+            cout << num_roots  << endl << x1 << endl << x2 << endl;
+            return;
+        }
+        case 2:
+        {
+            cout << num_roots  << endl << x2 << endl << x1 << endl;
+            return;
+        }
+        case 3:
+        {
+            cout <<  x2 << endl <<num_roots << endl << x1 << endl;
+            return;
+        }
+        case 4:
+        {
+            cout << x1 << endl << num_roots  << endl << x2 << endl;
+            return;
+        }
+        case 5:
+        {
+            cout << x1 << endl <<  x2 << endl << num_roots  << endl;
+            return;
+        }
+        case 6:
+        {
+            cout <<  x2 << endl <<  x1 << endl <<  num_roots << endl;
+            return;
+        }
+    }
+}
+
+int main()
+{
+
+    srand(time(NULL));
+    advert1(advert_time1);
+    cout << "Write down coefficients of your equation" << endl;
+    cin >> a >> b >> c;
+
+    num_roots=solve_square_equation(a,b,c,&x1,&x2);
+    if(x1==NAN){
+        x1=rand() % 6;
+        x2=-(rand() % 13);
+    } else {
+        if(x2==NAN){
+            x2=rand() % 6;
+        }
+    }
+
+    key_print=1 + rand() % 6;
+
+    random_print();
+    cout << "Do you want to see numbers without measurement error?{YES/NO}" << endl;
+    cin >> user_ans;
+
+    if(user_ans=="YES"){
+
+        advert1(advert_time2);
+        random_print2();
+        cout << "if you want to see numbers in a right way, than write:{YES}" << endl;
+        user_ans.erase(user_ans.begin(),user_ans.end());
+        cin >> user_ans;
+        if (user_ans == "YES"){
+            advert2(advert_time3);
+            cout << "here is your data, sorry:" << endl <<
+            "number of roots: " << num_roots << endl <<
+            "first root: " << x1 << endl <<
+            "second root: " << x2 << endl <<
+            "thanks for using this program!" << endl;
+            return 0;
+        } else {
+            return 0;
+        }
+
+    } else {
+        return 0;
+    }
+
+    return 0;
+}
